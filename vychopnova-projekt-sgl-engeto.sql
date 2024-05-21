@@ -63,10 +63,10 @@ SELECT
   czechia_payroll_industry_branch_name,
   payroll_year,
   total_avg_value,
-    CASE
-        WHEN total_avg_value < previous_year_total THEN 'Klesající mzda'
-        ELSE 'Rostoucí mzda'
-    END AS profit_status
+  CASE
+      WHEN total_avg_value < previous_year_total THEN 'Klesající mzda'
+      ELSE 'Rostoucí mzda'
+  END AS profit_status
 FROM yearly_totals
 ORDER BY
     czechia_payroll_industry_branch_code,
@@ -163,13 +163,13 @@ ORDER BY
 -- Základní dataset pro GDP
 CREATE OR REPLACE TABLE t_mirka_vychopnova_project_SQL_secondary_final AS (
 SELECT 
-c.*,
-e.YEAR,
-e.GDP,
-e.gini,
-e.taxes,
-e.fertility,
-e.mortaliy_under5
+  c.*,
+  e.YEAR,
+  e.GDP,
+  e.gini,
+  e.taxes,
+  e.fertility,
+  e.mortaliy_under5
 FROM economies e
 INNER JOIN countries c ON e.country = c.country)
 
